@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name= "com.yourname.wanderlust.ui.search.SearchFragment"
+        android:label="חיפוש" />
+
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.yourname.wanderlust.ui.results.ResultsFragment"
+        android:label="תוצאות" />
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.yourname.wanderlust.ui.map.MapFragment"
+        android:label="מפה" />
+
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.yourname.wanderlust.ui.social.SocialFragment"
+        android:label="קהילה" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.yourname.wanderlust.ui.results.DetailFragment"
+        android:label="פירוט מסלול">
+        <argument android:name="title" app:argType="string" android:defaultValue=""/>
+        <argument android:name="description" app:argType="string" android:defaultValue=""/>
+        <argument android:name="duration" app:argType="string" android:defaultValue=""/>
+        <argument android:name="difficulty" app:argType="string" android:defaultValue=""/>
+        <argument android:name="rating" app:argType="string" android:defaultValue=""/>
+        <argument android:name="destination" app:argType="string" android:defaultValue=""/>
+    </fragment>
+</navigation>
