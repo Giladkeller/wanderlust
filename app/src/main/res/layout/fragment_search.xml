@@ -21,372 +21,485 @@
             android:textColor="#1D9E75"
             android:layout_marginBottom="4dp"/>
 
+        <!-- לאן רוצים לטייל -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="מצא את המסלול המושלם שלך"
-            android:textSize="14sp"
-            android:textColor="#888888"
-            android:layout_marginBottom="20dp"/>
-
-        <!-- יעד -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="לאן נוסעים?"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="מדינה / עיר"
-            app:boxBackgroundColor="#FFFFFF"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editDestination"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textDirection="rtl"
-                android:gravity="end"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- משך הטיול -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="משך הטיול"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_marginBottom="16dp">
-
-            <AutoCompleteTextView
-                android:id="@+id/spinnerDuration"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="14dp"
-                android:gravity="end"
-                android:focusable="false"
-                android:focusableInTouchMode="false"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- סוג טיול -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="סוג הטיול"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupTripType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            app:singleSelection="false">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipHiking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="הייקינג"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipCity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="עיר ותרבות"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBeach"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="חוף ים"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipShopping"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="שופינג"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipAdventure"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="הרפתקאות"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="אוכל ושתייה"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipHistory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="היסטוריה"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipFamily"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="משפחה"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-        </com.google.android.material.chip.ChipGroup>
-
-        <!-- משתתפים -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="משתתפים"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="מספר אנשים"
-                android:layout_marginEnd="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editPax"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:gravity="end"
-                    android:text="2"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-
-                <AutoCompleteTextView
-                    android:id="@+id/spinnerAge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="14dp"
-                    android:gravity="end"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <!-- העדפות -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="העדפות ונגישות"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/chipGroupPrefs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:singleSelection="false">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipAccessible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="נגיש בכיסא גלגלים"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipBudget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="תקציב נמוך"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipMid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="תקציב בינוני"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:checked="true"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipLuxury"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="יוקרה"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipPet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ידידותי לחיות"
-                style="@style/Widget.MaterialComponents.Chip.Filter"/>
-
-        </com.google.android.material.chip.ChipGroup>
-
-        <!-- תאריכים -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="תאריכי נסיעה"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="4dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="תאריך יציאה"
-                android:layout_marginEnd="8dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editDateFrom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:clickable="true"
-                    android:hint="dd/mm/yyyy"
-                    android:gravity="end"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="תאריך חזרה"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editDateTo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="false"
-                    android:focusableInTouchMode="false"
-                    android:clickable="true"
-                    android:hint="dd/mm/yyyy"
-                    android:gravity="end"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <!-- תקציב כולל -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="תקציב כולל לאדם (₪)"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="לדוגמה: 5000"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editBudget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:gravity="end"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- נקודת יציאה -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="נוסעים מאיפה?"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#333333"
-            android:layout_marginBottom="8dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="עיר / שדה תעופה יציאה"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editOrigin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:gravity="end"
-                android:text="תל אביב"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- כפתור חיפוש -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSearch"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="✦ מצא את המסלול המושלם"
+            android:text="לאן רוצים לטייל?"
             android:textSize="16sp"
-            android:backgroundTint="#1D9E75"
-            android:layout_marginBottom="16dp"/>
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="עיר / מדינה / אזור"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editWantedDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:gravity="end"
+                android:imeOptions="actionSearch"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- מיקום -->
+        <LinearLayout
+            android:id="@+id/layoutLocationDetecting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="#E1F5EE"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <ProgressBar
+                android:id="@+id/progressLocation"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:indeterminateTint="#1D9E75"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/tvLocationStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="מזהה מיקום..."
+                android:textSize="13sp"
+                android:textColor="#085041"/>
+
+        </LinearLayout>
+
+        <!-- סוג טיול — מוסתר עד שיש מיקום -->
+        <LinearLayout
+            android:id="@+id/layoutTripMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- מסלול בחו"ל -->
+            <LinearLayout
+                android:id="@+id/layoutFlight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✈ טיסה לחו״ל"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="14dp"/>
+
+                <!-- יעד -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="לאן טסים?"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginBottom="12dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editDestination"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:gravity="end"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- תאריכים -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="יציאה"
+                        android:layout_marginEnd="8dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editDateFrom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="חזרה"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editDateTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <!-- כמה אנשים -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="מספר נוסעים"
+                        android:layout_marginEnd="8dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editPax"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:gravity="end"
+                            android:text="2"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="תקציב לאדם ₪"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editBudget"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:gravity="end"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <!-- מזוודות -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="כבודה"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupLuggage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHandbag"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="תיק יד בלבד"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTrolley"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="טרולי קאבין"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipSuitcase"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="מזוודה גדולה"
+                        android:checked="true"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBackpack"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="תיק גב"/>
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
+
+            <!-- מסלול מקומי -->
+            <LinearLayout
+                android:id="@+id/layoutLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇮🇱 טיול בארץ"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="14dp"/>
+
+                <!-- אזור -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="בחר אזור"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipNorth"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="צפון"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipSouth"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="דרום"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCenter"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="מרכז"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipJerusalem"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ירושלים"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipDeadSea"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ים המלח"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipEilat"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="אילת"/>
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <!-- כמה אנשים מקומי -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="מספר אנשים"
+                        android:layout_marginEnd="8dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editLocalPax"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:gravity="end"
+                            android:text="2"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="תקציב לאדם ₪"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editLocalBudget"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:gravity="end"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <!-- רמת מסלול -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="רמת מסלול"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333">
+                </TextView>
+
+                <!-- רמת קושי chips -->
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupDifficulty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="8dp"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipEasy"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="קל — משפחות"
+                        android:checked="true"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipMedium"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="בינוני"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHard"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="קשה — מטיילים"/>
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <!-- סוג לינה -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="סוג לינה"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupAccommodation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCamping"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="קמפינג"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipZimmer"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="צימר"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHotel"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="מלון"/>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHostel"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="האוסטל"/>
+
+                </com.google.android.material.chip.ChipGroup>
+
+                <!-- תאריכים מקומי -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="תאריך יציאה"
+                        android:layout_marginEnd="8dp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editLocalDateFrom"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="תאריך חזרה"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editLocalDateTo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:clickable="true"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- סוף layoutLocal -->
+
+            <!-- כפתור חיפוש -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="✦ מצא מסלול"
+                android:textSize="16sp"
+                android:backgroundTint="#1D9E75"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+        <!-- סוף layoutTripMode -->
 
     </LinearLayout>
 </ScrollView>

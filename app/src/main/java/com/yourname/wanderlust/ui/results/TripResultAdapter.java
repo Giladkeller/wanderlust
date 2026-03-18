@@ -35,6 +35,7 @@ public class TripResultAdapter extends RecyclerView.Adapter<TripResultAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TripResult r = items.get(position);
 
+
         if (r.estimatedCost != null && !r.estimatedCost.isEmpty()) {
             holder.tvEstimatedCost.setText("💰 " + r.estimatedCost);
             holder.tvEstimatedCost.setVisibility(View.VISIBLE);
@@ -47,6 +48,15 @@ public class TripResultAdapter extends RecyclerView.Adapter<TripResultAdapter.Vi
             if (listener != null) listener.onItemClick(items.get(position));
 
         });
+
+        if (r.accommodation != null && !r.accommodation.isEmpty()) {
+            holder.tvAccommodation.setText("🏨 " + r.accommodation);
+            holder.tvAccommodation.setVisibility(View.VISIBLE);
+        }
+        if (r.flightInfo != null && !r.flightInfo.isEmpty()) {
+            holder.tvFlightInfo.setText("✈ " + r.flightInfo);
+            holder.tvFlightInfo.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -55,11 +65,14 @@ public class TripResultAdapter extends RecyclerView.Adapter<TripResultAdapter.Vi
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvAccommodation, tvFlightInfo;
         TextView tvTitle, tvBadge, tvDescription, tvHighlights,
                 tvDuration, tvDifficulty, tvRating, tvSource, tvEstimatedCost;
 
         ViewHolder(View itemView) {
             super(itemView);
+            tvAccommodation = itemView.findViewById(R.id.tvAccommodation);
+            tvFlightInfo    = itemView.findViewById(R.id.tvFlightInfo);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvBadge = itemView.findViewById(R.id.tvBadge);
             tvDescription = itemView.findViewById(R.id.tvDescription);

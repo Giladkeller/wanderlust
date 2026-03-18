@@ -11,5 +11,7 @@ public class TripResult {
     public String difficulty;
     public String rating;
     public String estimatedCost;
+    public String accommodation;
+    public String flightInfo;
     public String source;
 }

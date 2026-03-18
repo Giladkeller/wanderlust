@@ -69,6 +69,53 @@ public class TripRepository {
         });
     }
 
+    public interface SentimentCallback {
+        void onSuccess(String sentiment);
+        void onError(String error);
+    }
+
+    public void analyzeSentiment(String text, SentimentCallback callback) {
+        executor.execute(() -> {
+            try {
+                String prompt = "נתח את הסנטימנט של הטקסט הבא וענה במילה אחת בלבד:\n" +
+                        "positive / negative / neutral\n\n" +
+                        "טקסט: " + text;
+
+                List<Map<String, String>> messages = new ArrayList<>();
+                Map<String, String> msg = new HashMap<>();
+                msg.put("role", "user");
+                msg.put("content", prompt);
+                messages.add(msg);
+
+                Map<String, Object> body = new HashMap<>();
+                body.put("model", "llama-3.3-70b-versatile");
+                body.put("messages", messages);
+                body.put("max_tokens", 10);
+
+                Response<GroqResponse> response =
+                        ApiClient.getInstance().sendMessage(body).execute();
+
+                if (response.isSuccessful() && response.body() != null) {
+                    String result = response.body().getText()
+                            .trim().toLowerCase();
+                    String sentiment;
+                    if (result.contains("positive")) {
+                        sentiment = "positive";
+                    } else if (result.contains("negative")) {
+                        sentiment = "negative";
+                    } else {
+                        sentiment = "neutral";
+                    }
+                    mainHandler.post(() -> callback.onSuccess(sentiment));
+                } else {
+                    mainHandler.post(() -> callback.onError("שגיאת שרת"));
+                }
+            } catch (Exception e) {
+                mainHandler.post(() -> callback.onError(e.getMessage()));
+            }
+        });
+    }
+
     private void parseAndReturn(String jsonText, TripCallback callback) {
         try {
             String clean = jsonText
